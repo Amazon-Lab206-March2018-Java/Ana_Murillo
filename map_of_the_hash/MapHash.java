@@ -20,7 +20,7 @@ public class MapHash {
                 "I like to use words like 'magic,'I lik to use words about pizza.But when I st");
         trackList.add(songMap);
 
-        String name = songMap.get(key);
+        String name = songMap.get("calling my name");
         // String both = trackList.get(namesString, lyricsString);
 
         System.out.println(name);
