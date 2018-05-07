@@ -1,0 +1,19 @@
+@charset "ISO-8859-1";
+
+.checkerboard{
+	text-align: center;
+}
+
+.cel{
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+
+.purple{
+	background-color:purple;
+}
+
+.blue{
+	background-color: blue;
+}

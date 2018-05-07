@@ -1,0 +1,30 @@
+#wrapper{
+	width: 980px;
+    margin: 0px auto;
+    text-align : center;
+}
+
+#projects{
+	display:inline-block;
+	width:100px;
+	height:100px;
+	/* vertical-align:top;
+	border: 2px solid black; */
+	text-align : center;	
+}
+#project{
+	display:inline-block;
+	width:100px;
+	height:100px;
+	/* vertical-align:top;
+	border: 2px solid black; */
+	text-align : center;	
+}
+#projec{
+	display:inline-block;
+	width:100px;
+	height:100px;
+	/* vertical-align:top;
+	border: 2px solid black; */
+	text-align : center;	
+}
