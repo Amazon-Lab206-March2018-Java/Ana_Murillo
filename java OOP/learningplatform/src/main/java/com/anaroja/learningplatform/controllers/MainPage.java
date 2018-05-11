@@ -6,10 +6,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class main {
+public class MainPage {
 	
 	@RequestMapping("/")
-	public String index() {
+	public String main() {
+		System.out.print("yesjsadujd");
 		return "index.jsp";
 	}
 	

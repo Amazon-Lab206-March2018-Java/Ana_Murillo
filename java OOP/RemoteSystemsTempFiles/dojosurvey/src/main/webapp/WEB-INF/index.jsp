@@ -20,7 +20,7 @@
 			  	<option value="Python">Python</option>
 			  	<option value="Javascript">Javascript</option>
 				</select><br>
-		Comment (optional): <textarea name="comment" rows="20" cols="30"></textarea><br>
+		Comment (optional): <textarea name="comm" rows="20" cols="30"></textarea><br>
 		<input type="submit" value="Submit">
 	</form>
 	</div>
