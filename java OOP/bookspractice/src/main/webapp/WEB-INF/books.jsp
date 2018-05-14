@@ -8,7 +8,7 @@
 <title>Books</title>
 </head>
 <body>
-	<table>
+	<table border="1">
 	<c:forEach items= "${books }" var="book" varStatus="loop">
 		<tr>
 			<td><c:out value= "${book.title }"/></td>

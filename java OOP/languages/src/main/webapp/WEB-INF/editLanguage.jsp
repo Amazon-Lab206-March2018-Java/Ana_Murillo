@@ -10,7 +10,9 @@
 <body>
 	<a href="/languages">Dashboard</a>
 	<a href="/languages/delete/${id}">Delete</a>
-	<form:form method="POST" action="/languages/edit/${id}" modelAttribute="language">
+	<form:form method="POST" action="/languages/edit/${id}" modelAttribute="language" >
+	<form:hidden path="id"/>
+	
     <form:label path="name">Name
     <form:errors path="name"/>
     <form:input path="name"/></form:label>

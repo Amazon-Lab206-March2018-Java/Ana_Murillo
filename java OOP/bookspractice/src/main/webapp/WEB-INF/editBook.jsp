@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form method="POST" action="/books/edit/${id}" modelAttribute="book">
+	<form:form method="POST" action="/books/edit/${id}" modelAttribute="book" hidden path="id">
     <form:label path="title">Title
     <form:errors path="title"/>
     <form:input path="title"/></form:label>

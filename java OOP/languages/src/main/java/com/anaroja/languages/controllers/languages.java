@@ -31,10 +31,9 @@ public class languages{
 		return "languagelist.jsp";
 	}
 	
-	@RequestMapping("/languages/{index}")
-    public String findLanguageByIndex(Model model, @PathVariable("index") int index) {
-		language language = languageService.findLanguageByIndex(index);
-        model.addAttribute("language", language);
+	@RequestMapping("/languages/{id}")
+    public String findLanguageById(Model model, @PathVariable("id") Long id) {
+        model.addAttribute("language", languageService.findLanguageById(id));
         return "showLanguage.jsp";
     }
 	
@@ -49,8 +48,8 @@ public class languages{
     }
 	
 	@RequestMapping("/languages/edit/{id}")
-    public String editLanguage(@PathVariable("id") int id, Model model) {
-		language language = languageService.findLanguageByIndex(id);
+    public String editLanguage(@PathVariable("id") Long id, Model model) {
+		language language = languageService.findLanguageById(id);
         if (language != null){
             model.addAttribute("language", language);
             return "editLanguage.jsp";
@@ -60,17 +59,17 @@ public class languages{
     }
 	
 	@PostMapping("/languages/edit/{id}")
-    public String updateLanguage(@PathVariable("id") int id, @Valid @ModelAttribute("language") language language, BindingResult result) {
+    public String updateLanguage(@PathVariable("id") Long id, @Valid @ModelAttribute("language") language language, BindingResult result) {
         if (result.hasErrors()) {
             return "editLanguage.jsp";
         }else{
-        	languageService.updateLanguage(id, language);
+        	languageService.updateLanguage(language);
             return "redirect:/languages";
         }
     }
 	
-	@RequestMapping(value="/languages/delete/{id}")
-    public String destroyLanguage(@PathVariable("id") int id) {
+	@RequestMapping("/languages/delete/{id}")
+    public String destroyLanguage(@PathVariable("id") Long id) {
 		languageService.destroyLanguage(id);
         return "redirect:/languages";
     }

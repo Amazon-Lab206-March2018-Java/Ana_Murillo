@@ -21,28 +21,28 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${languages }" var="language" varStatus="loop">
+						<c:forEach items="${songs }" var="song">
 							<tr>
 								<td>
-									<a href="/languages/${loop.index}">
-										<c:out value="${language.name }" />
+									<a href="/Songs/${song.id}">
+										<c:out value="${song.name }" />
 									</a>
 								</td>
 								<td>
-									<c:out value="${language.creator }" />
+									<c:out value="${song.creator }" />
 								</td>
 								<td>
-									<c:out value="${language.currentVersion }" />
+									<c:out value="${song.currentVersion }" />
 								</td>
 								<td>
-									<a href="/languages/edit/${loop.index}">Edit</a>
-									<a href="/languages/delete/${loop.index}">Delete</a>
+									<a href="/Songs/edit/${song.id}">Edit</a>
+									<a href="/Songs/delete/${song.id}">Delete</a>
 								</td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-				<form:form method="POST" action="languages/new" modelAttribute="language">
+				<form:form method="POST" action="Songs/new" modelAttribute="song">
 					<form:label path="name">Name
 						<form:errors path="name" />
 						<form:input path="name" /></form:label>
@@ -53,7 +53,7 @@
 
 					<form:label path="currentVersion">Version
 						<form:errors path="currentVersion" />
-						<form:input type="number" path="currentVersion" /></form:label>
+						<form:input path="currentVersion" /></form:label>
 
 					<input type="submit" value="Submit" />
 				</form:form>

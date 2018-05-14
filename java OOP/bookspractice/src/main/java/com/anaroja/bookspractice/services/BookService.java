@@ -1,44 +1,42 @@
 package com.anaroja.bookspractice.services;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
 import com.anaroja.bookspractice.models.Book;
+import com.anaroja.bookspractice.repositories.BookRepository;
 
 @Service
 public class BookService {
-	List<Book> books = new ArrayList<Book>(Arrays.asList(
-			new Book("The Illiad", "About a war", "Greek", 302),
-			new Book("East of Eden", "life in a box", "English", 250),
-			new Book("How to read a book", "About reading books", "English", 200)));
+	
+	private BookRepository bookRepository;
+    public BookService(BookRepository bookRepository){
+        this.bookRepository = bookRepository;
+    }
+
 	public List<Book> allBooks(){
-		return books;
+        return bookRepository.findAll();
 	}
-	public Book findBookByIndex(int index) {
-		if (index < books.size()){
-            return books.get(index);
-        }else{
-		return null;
+	public Book findBookById(Long id) {
+		Optional<Book> optionalBook = bookRepository.findById(id);
+        if(optionalBook.isPresent()) {
+            return optionalBook.get();
+        } else {
+            return null;
         }
 	}
 	public void addBook(@Valid Book book) {
-		 books.add(book);	
+		bookRepository.save(book);
 	}
-	public void updateBook(int id, @Valid Book book) {
-		if (id < books.size()){
-            books.set(id, book);
-        }
+	public void updateBook(@Valid Book book) {
+		bookRepository.save(book);
 		
 	}
-	public void destroyBook(int id) {
-		if (id < books.size()){
-            books.remove(id);
-        }
-		
+	public void destroyBook(Long id) {
+		bookRepository.deleteById(id);
 	}
 }
