@@ -65,13 +65,13 @@ public class Songs{
 	
 	@RequestMapping("/search/{artist}")
     public String findSongByA(Model model, @PathVariable("artist") String artist) {
-        model.addAttribute("artist", songService.findSongByArtist(artist));
+        model.addAttribute("artist", songService.findByArtist(artist));
         return "artistSong.jsp";
     }
 	
 	@RequestMapping("/topTen")
-	public String topTen(Model model, @PathVariable("top") Song song) {
-        model.addAttribute("top", songService.topTen(song));
+	public String topTen(Model model, @ModelAttribute("song") Song song) {
+        model.addAttribute("song", songService.topTen());
         return "topTen.jsp";
     }
 }

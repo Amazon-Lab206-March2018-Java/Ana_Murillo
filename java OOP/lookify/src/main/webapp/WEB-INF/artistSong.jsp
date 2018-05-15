@@ -25,7 +25,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${song }" var="song">
+				<c:forEach items="${artist }" var="song">
 					<tr>
 						<td>
 							<a href="/Songs/${song.id}">

@@ -31,13 +31,8 @@ public class SongService {
         }
 	}
 	
-	public Song findSongByArtist(String artist) {
-		Optional<Song> optionalSong = songRepository.findByArtist(artist);
-        if(optionalSong.isPresent()) {
-            return optionalSong.get();
-        } else {
-            return null;
-        }
+	public List<Song> findByArtist(String artist) {
+		return songRepository.findByArtistContaining(artist);
 	}
 	
 	public void addSong(@Valid Song song) {
@@ -49,5 +44,9 @@ public class SongService {
 	}
 	public void destroySong(Long id) {
 		songRepository.deleteById(id);
+	}
+
+	public List<Song> topTen() {
+		return songRepository.findTop10ByOrderByRatingDesc();
 	}
 }

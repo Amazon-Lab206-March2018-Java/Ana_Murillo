@@ -12,7 +12,7 @@
 
 			<body>
 				<a href="/Songs/new">Add New</a>
-				<a href="/Songs/top">Top 10</a>
+				<a href="/topTen">Top 10</a>
 				<form action="/search">
 
 					<input type="text" name="artist">

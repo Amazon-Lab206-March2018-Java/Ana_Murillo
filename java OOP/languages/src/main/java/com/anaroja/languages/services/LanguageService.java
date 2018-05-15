@@ -8,7 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import com.anaroja.languages.models.language;
-import com.anaroja.languages.repositories.LanguageRepository;
+import com.anaroja.license.services.LanguageRepository;
 
 
 @Service
