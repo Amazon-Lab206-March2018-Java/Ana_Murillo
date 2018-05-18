@@ -39,13 +39,16 @@ public controllers(UserService userService, UserValidator userValidator) {
 	        userValidator.validate(user, result);
 	        if (result.hasErrors()) {
 	            return "registrationPage.jsp";
-	        }
-	        if(userService.allUsers().size() == 0) {
-	    		userService.saveUserWithAdminRole(user);
-	    	}
-	        userService.saveWithUserRole(user);
+	        }else {
+	        	model.addAttribute("registrationMessage", "Registration Successful. Continue to login.");
+	    		if (userService.allUsers().size() == 0) {
+	    			userService.saveUserWithAdminRole(user);
+	    		} else {
+	    			userService.saveWithUserRole(user);
+	    		}
 	        return "redirect:/login";
-	    }
+	        }	
+        }
 	 
 	// NEW 
 	    @RequestMapping("/admin")

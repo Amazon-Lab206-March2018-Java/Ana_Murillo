@@ -35,7 +35,6 @@ public class UserService {
         userRepository.save(user);
     }
      
-  
     public void saveUserWithAdminRole(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setRoles(roleRepository.findByName("ROLE_ADMIN"));
@@ -57,5 +56,9 @@ public class UserService {
     
     public void deleteUserById(Long id) {
     	userRepository.deleteById(id);
+    }
+    
+    public void save(User user) {
+    	userRepository.save(user);
     }
 }
